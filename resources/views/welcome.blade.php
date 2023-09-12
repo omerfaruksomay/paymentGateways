@@ -33,11 +33,15 @@
                     <div class="d-flex">
                         <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1"
                             style="max-width: 3rem" />
-                        <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                            <i class="bi-cart-fill me-1">
-                                Buy now
-                            </i>
-                        </button>
+                        <form action="{{ route('paypal.payment') }}" method="POST">
+                            @csrf
+                            <input type="hidden" value="40" name="price">
+                            <button class="btn btn-outline-dark flex-shrink-0" type="submit">
+                                <i class="bi-cart-fill me-1">
+                                    Buy now
+                                </i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
